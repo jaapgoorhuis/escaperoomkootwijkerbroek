@@ -15,10 +15,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-//        $this->call(settingSeeder::class);
-//        $this->call(userSeeder::class);
-//        $this->call(filterSeeder::class);
-//        $this->call(filterValueSeeder::class);
-        $this->call(structureSeeder::class);
+        $this->call(SettingSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(FilterSeeder::class);
+        $this->call(FilterValueSeeder::class);
+        $this->call(StructureSeeder::class);
+        $this->call(PageSeeder::class);
+        $this->call(FooterSeeder::class);
     }
 }

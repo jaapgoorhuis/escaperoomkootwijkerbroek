@@ -19,10 +19,7 @@ return new class extends Migration
             $table->integer('is_removable')->nullable();
             $table->integer('is_visible')->nullable();
             $table->integer('is_active')->nullable();
-            $table->string('header_image')->nullable();
-            $table->integer('show_header')->nullable();
             $table->integer('show_footer')->nullable();
-            $table->string('header_text')->nullable();
             $table->integer('order_id')->nullable();
             $table->timestamps();
         });
