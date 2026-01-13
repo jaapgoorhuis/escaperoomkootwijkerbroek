@@ -504,7 +504,7 @@
             tooltip: 'addbutton',
             click: function () {
                 // invoke insertText method with 'hello' on editor module.
-                context.invoke('editor.pasteHTML', '<a href="{{$this->settings->facebook}}"><img src="{{asset('/storage/images/frontend/uploads/facebook.svg')}}" class="facebook-icon" alt="facebook"/></a>');
+                context.invoke('editor.pasteHTML', '<a href="{{$this->settings->facebook}}"><img src="{{asset('/public/storage/images/frontend/uploads/facebook.svg')}}" class="facebook-icon" alt="facebook"/></a>');
 
             }
         });
@@ -521,7 +521,7 @@
             tooltip: 'addbutton',
             click: function () {
                 // invoke insertText method with 'hello' on editor module.
-                context.invoke('editor.pasteHTML', '<a href="{{$this->settings->instagram}}"><img src="{{asset('/storage/images/frontend/uploads/instagram.svg')}}" class="facebook-icon" alt="instagram"/></a>');
+                context.invoke('editor.pasteHTML', '<a href="{{$this->settings->instagram}}"><img src="{{asset('/public/storage/images/frontend/uploads/instagram.svg')}}" class="facebook-icon" alt="instagram"/></a>');
 
             }
         });
@@ -538,7 +538,7 @@
             tooltip: 'addbutton',
             click: function () {
                 // invoke insertText method with 'hello' on editor module.
-                context.invoke('editor.pasteHTML', '<a href="{{$this->settings->linkedin}}"><img src="{{asset('/storage/images/frontend/uploads/linkedin.svg')}}" class="facebook-icon" alt="linkedin"/></a>');
+                context.invoke('editor.pasteHTML', '<a href="{{$this->settings->linkedin}}"><img src="{{asset('/public/storage/images/frontend/uploads/linkedin.svg')}}" class="facebook-icon" alt="linkedin"/></a>');
 
             }
         });
@@ -556,7 +556,7 @@
             tooltip: 'addbutton',
             click: function () {
                 // invoke insertText method with 'hello' on editor module.
-                context.invoke('editor.pasteHTML', '<a href="{{$this->settings->facebook}}"><img src="{{asset('/storage/images/frontend/uploads/facebookDark.svg')}}" class="facebook-icon" alt="facebook"/></a>');
+                context.invoke('editor.pasteHTML', '<a href="{{$this->settings->facebook}}"><img src="{{asset('/public/storage/images/frontend/uploads/facebookDark.svg')}}" class="facebook-icon" alt="facebook"/></a>');
 
             }
         });
@@ -573,7 +573,7 @@
             tooltip: 'addbutton',
             click: function () {
                 // invoke insertText method with 'hello' on editor module.
-                context.invoke('editor.pasteHTML', '<a href="{{$this->settings->instagram}}"><img src="{{asset('/storage/images/frontend/uploads/instagramDark.svg')}}" class="facebook-icon" alt="instagram"/></a>');
+                context.invoke('editor.pasteHTML', '<a href="{{$this->settings->instagram}}"><img src="{{asset('/public/storage/images/frontend/uploads/instagramDark.svg')}}" class="facebook-icon" alt="instagram"/></a>');
 
             }
         });
