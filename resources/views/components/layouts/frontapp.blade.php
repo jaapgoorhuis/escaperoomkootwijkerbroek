@@ -86,27 +86,6 @@
 
 <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-
-        // Check of widget nog niet geladen is
-        const widget = document.getElementById('oa_widget');
-        if (!widget.dataset.loaded) {
-
-            // Maak een nieuw script element aan
-            const script = document.createElement('script');
-            script.src = 'https://widget.onlineafspraken.nl/consumer/booking/book/key/alah21oooa98-alaz00/l/a3216/ln/nl/t/8090ec/f/110d0111/o/theme:advanced,dp:modern/c/00aeef,7dc473,fff,f16522,56ac4a,000,0,fff/at/0/rs/0/pp/0/lp/1/ls/0/og/2/op/2/gp/0/gtm_tag/GTM-N643DK8M/exclude/mobiledetect/output/js';
-            script.async = true; // Laad async zodat het de pagina niet blokkeert
-
-            // Markeer dat widget is geladen
-            script.onload = () => {
-                widget.dataset.loaded = true;
-                console.log('Widget geladen!');
-            };
-
-            // Voeg script toe aan body
-            document.body.appendChild(script);
-        }
-    });
 
 
     jQuery(document).ready(function() {
