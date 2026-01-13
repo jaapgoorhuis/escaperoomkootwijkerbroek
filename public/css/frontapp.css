@@ -468,6 +468,7 @@ textarea::placeholder {
     border:#888;
 }
 .previewImg.slider-image {
+    background-repeat:no-repeat !important;
     background-position: center center !important;
     background-size:100% !important;
 }
