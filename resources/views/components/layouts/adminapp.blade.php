@@ -57,11 +57,11 @@
                     <a href="/auth/dashboard" class="nav_link"> <span class="nav_name">Dashboard</span> </a>
                     <a href="/auth/pages" class="nav_link"> <span class="nav_name">Pagina's</span> </a>
                     <a href="/auth/menu" class="nav_link"> <span class="nav_name">Menu</span> </a>
-                    <a href="/auth/configurator/colorCategories" class="nav_link"> <span class="nav_name">Configurator kleuren</span> </a>
-                    <a href="/auth/impressions" class="nav_link"> <span class="nav_name">Impressies</span> </a>
-                    <a href="/auth/magazine" class="nav_link"> <span class="nav_name">Magazine</span> </a>
+{{--                    <a href="/auth/configurator/colorCategories" class="nav_link"> <span class="nav_name">Configurator kleuren</span> </a>--}}
+{{--                    <a href="/auth/impressions" class="nav_link"> <span class="nav_name">Impressies</span> </a>--}}
+{{--                    <a href="/auth/magazine" class="nav_link"> <span class="nav_name">Magazine</span> </a>--}}
                     <a href="/auth/footer" class="nav_link"> <span class="nav_name">Footer</span> </a>
-                    <a href="/auth/reviews" class="nav_link"> <span class="nav_name">Reviews</span> </a>
+{{--                    <a href="/auth/reviews" class="nav_link"> <span class="nav_name">Reviews</span> </a>--}}
                     <a href="/auth/settings" class="nav_link"> <span class="nav_name">Instellingen</span> </a>
                 </div>
             </div>
