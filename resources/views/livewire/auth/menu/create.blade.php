@@ -26,8 +26,9 @@
                                 <label for="route">Pagina koppelen:</label><br/>
                                 <small class="sub-label-admin">Selecteer de pagina die je aan dit menu item wil koppelen</small>
                                 <select wire:model="page_id" class="form-control">
+                                    <option value="0">Geen pagina</option>
                                     @foreach($pages as $page)
-                                        <option value="0">Geen pagina</option>
+
                                         <option value="{{$page->id}}">{{$page->title}}
                                     @endforeach
                                 </select>
