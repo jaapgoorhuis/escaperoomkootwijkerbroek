@@ -642,3 +642,7 @@ a.dropdown-item:hover {
 .pl-4 {
     padding-left: 40px !important;
 }
+
+a.dropdown-item.active {
+    background: #9a7067 !important;
+}
