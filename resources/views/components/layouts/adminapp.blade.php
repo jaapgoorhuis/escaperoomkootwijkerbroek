@@ -77,7 +77,9 @@
         </nav>
     </div>
 
+    <div>
     {{$slot}}
+    </div>
 </main>
 @filepondScripts
 @livewireScripts

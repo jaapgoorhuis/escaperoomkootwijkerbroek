@@ -1,4 +1,4 @@
-
+<div>
     <div class="row justify-content-center mt-5">
         <div class="col-md-12 admin-page-container">
             <div class="card">
@@ -71,7 +71,8 @@
     </div>
 
 
-{{-- CSS voor inspringing van children --}}
-<style>
-    .pl-4 { padding-left: 40px !important; }
-</style>
+    {{-- CSS voor inspringing van children --}}
+    <style>
+        .pl-4 { padding-left: 40px !important; }
+    </style>
+</div>
