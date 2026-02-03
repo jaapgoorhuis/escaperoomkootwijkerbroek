@@ -27,10 +27,15 @@ class Create extends Component
 
     public $latest_menu_item;
 
+    public $sub_page_id;
+
+    public $menuItems;
+
     use WithFileUploads;
 
     public function mount() {
         $this->pages = Page::get();
+        $this->menuItems = MenuItems::get();
         $this->latest_menu_item = MenuItems::orderBy('created_at', 'desc')->first();
     }
 
@@ -62,10 +67,14 @@ class Create extends Component
             'title' => $this->title,
             'page_id' => $this->page_id,
             'order_id' => $this->order_id,
-            'parent_id' => '0',
+            'parent_id' => $this->sub_page_id,
             'is_dropdown_parent' => '0',
             'show_footer' => $this->show_footer,
             'show_menu' => $this->show_menu,
+        ]);
+
+        MenuItems::where('id', $this->sub_page_id)->update([
+            'is_dropdown_parent'=> '1',
         ]);
 
         session()->flash('success','Het menu item is toegevoegd');

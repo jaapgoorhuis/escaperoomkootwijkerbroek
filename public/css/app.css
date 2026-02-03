@@ -456,3 +456,6 @@ h6 {
 .note-editor .note-editing-area .note-editable a {
     color: white;
 }
+.pl-4 {
+    padding-left: 40px !important;
+}

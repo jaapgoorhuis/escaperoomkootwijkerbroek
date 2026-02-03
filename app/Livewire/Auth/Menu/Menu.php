@@ -29,14 +29,20 @@ class Menu extends Component
         return $this->redirect('/auth/menu/edit/'.$id, navigate: true);
     }
 
-    public function updateMenuItemOrder($list) {
+    public function updateMenuItemOrder($list)
+    {
+        // $list is een array van arrays met keys 'value' en 'order'
+        foreach ($list as $item) {
+            $menuItem = MenuItems::find($item['value']); // value = id van rij
+            if (!$menuItem) continue;
 
-        foreach($list as $item) {
-            MenuItems::where('id', $item['value'])->update(['order_id' => $item['order']]);
+            $menuItem->order_id = $item['order'];  // volgorde opslaan
+            // _parent_id blijft hetzelfde (children blijven onder parent)
+            $menuItem->save();
         }
 
+        session()->flash('success', 'Menu volgorde bijgewerkt!');
     }
-
 
     public function deleteMenu($id) {
 

@@ -35,6 +35,23 @@
                                 </div>
 
                                 <div class="form-group mb-3">
+                                    <label for="route">Submenu item van:</label><br/>
+                                    <small class="sub-label-admin">Selecteer de pagina waaronder je dit als submenu wilt maken</small>
+
+                                    <select wire:model="sub_page_id" class="form-control">
+                                        <option value="0">Geen pagina
+                                        @foreach($menuItems as $menu)
+                                            @if($menu->parent_id == 0)
+                                                <option value="{{$menu->id}}">{{$menu->title}}
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                    @error('sub_page_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group mb-3">
                                     <label for="route">Item zichtbaar in het menu:</label><br/>
                                     <small class="sub-label-admin">Kies of het item zichtbaar is in het menu op de website</small>
                                     <select wire:model.live="show_menu" class="form-control">

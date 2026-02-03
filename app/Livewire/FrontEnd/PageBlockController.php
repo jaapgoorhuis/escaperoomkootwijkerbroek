@@ -49,7 +49,9 @@ class PageBlockController extends Component
 
     public $settings;
     public $privacy;
+    public ?string $captcha = null; // hier komt het token in
 
+    protected $listeners = ['captchaUpdated'];
     public function index()
     {
 
@@ -136,7 +138,8 @@ class PageBlockController extends Component
             'voornaam_contact' => 'required',
             'achternaam_contact' => 'required',
             'email_contact' => 'required|email',
-            'privacy_contact' => 'accepted'
+            'bericht_contact' => 'required',
+            'captcha' => 'required', // dit veld bevat het token van v2/v3
         ];
     }
 
@@ -149,6 +152,8 @@ class PageBlockController extends Component
 
     public function storeMagazine() {
         $this->validate($this->rules());
+
+
 
         $array = [
             'voornaam' => $this->voornaam,
@@ -169,10 +174,12 @@ class PageBlockController extends Component
         $this->privacy = false;
     }
 
-    public function storeContact() {
 
+
+    public function storeContact() {
         $this->validate($this->contactRules());
 
+        // Mail verzenden
         $array = [
             'voornaam' => $this->voornaam_contact,
             'achternaam' => $this->achternaam_contact,
@@ -181,10 +188,12 @@ class PageBlockController extends Component
             'bericht' => $this->bericht_contact
         ];
 
-        Mail::to(env('MAIL_TO_ADDRESS'))
-            ->send(new Contact($array));
+        Mail::to(env('MAIL_TO_ADDRESS'))->send(new Contact($array));
 
         $this->dispatch('resetForm');
+
+        // reset reCAPTCHA in frontend
+        $this->dispatch('resetCaptcha');
     }
 
     public function updateOrder($list) {

@@ -517,6 +517,12 @@ iframe.cadeaubon-iframe {
 
 /* Scrollbaar vanaf mobiel (max-width: 767px) */
 @media (max-width: 767px) {
+
+    iframe.cadeau-iframe {
+        min-width:auto !important;
+        width:auto !important;
+        height:1500px !important;
+    }
     /* Zorg dat iframe niet kleiner wordt dan originele breedte */
     .widget-iframe {
         min-width: auto;                /* force scrollbar */
@@ -606,4 +612,33 @@ button.navbar-toggler {
 }
 li.nav-item {
     padding-left: 15px;
+}
+
+.navbar .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* Cursor aanpassen voor niet-klikbare titel */
+.navbar .dropdown-toggle {
+    cursor: default;
+}
+
+span.nav-link.dropdown-toggle {
+    color: white;
+}
+
+ul.dropdown-menu {
+    background: black;
+}
+
+a.dropdown-item:hover {
+    background: black;
+    color:#9a7067 !important
+}
+.nav-link dropdown-toggle {
+    color:red;
+}
+.pl-4 {
+    padding-left: 40px !important;
 }

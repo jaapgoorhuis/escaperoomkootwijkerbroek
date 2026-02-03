@@ -24,17 +24,28 @@ class Edit extends Component
     public $title;
     public $id;
     public $menu_item;
+    public $sub_page_id;
 
+    public $menuItems;
+    public $parent_id;
     use WithFileUploads;
 
     public function mount() {
         $this->id = Route::current()->parameter('id');
         $this->pages = Page::get();
+        $this->menuItems = MenuItems::get();
         $this->menu_item = MenuItems::where('id', $this->id)->first();
         $this->page_id = $this->menu_item->page_id;
         $this->show_footer = $this->menu_item->show_footer;
         $this->title = $this->menu_item->title;
         $this->show_menu = $this->menu_item->show_menu;
+        $this->parent_id = MenuItems::where('id', $this->menu_item->parent_id)->first();
+
+        if($this->parent_id) {
+        $this->sub_page_id = $this->parent_id->id;
+        } else {
+            $this->sub_page_id = 0;
+        }
     }
 
     public function rules()
@@ -57,7 +68,7 @@ class Edit extends Component
             'title' => $this->title,
             'page_id' => $this->page_id,
             'order_id' => $this->menu_item->order_id,
-            'parent_id' => '0',
+            'parent_id' => $this->sub_page_id,
             'is_dropdown_parent' => '0',
             'show_footer' => $this->show_footer,
             'show_menu' => $this->show_menu,

@@ -87,6 +87,10 @@
 <script>
 
 
+    function recaptchaCallback(token) {
+        // dispatch event naar Livewire 3
+        Livewire.dispatch('captchaUpdated', { token: token });
+    }
 
     jQuery(document).ready(function() {
 

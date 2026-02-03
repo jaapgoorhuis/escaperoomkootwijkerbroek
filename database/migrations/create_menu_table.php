@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('menu', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->integer('page_id');
+            $table->integer('page_id')->nullable();
             $table->integer('order_id');
-            $table->integer('parent_id');
+            $table->integer('parent_id')->nullable();
             $table->integer('is_dropdown_parent');
             $table->integer('show_footer');
             $table->integer('show_menu');
