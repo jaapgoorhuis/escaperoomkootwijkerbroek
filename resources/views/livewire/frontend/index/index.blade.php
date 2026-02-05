@@ -658,34 +658,40 @@
             ],
         },
         callbacks: {
-            onPaste: function(e) {
+            onPaste: function (e) {
+                e.preventDefault();
+
                 const clipboardData = (e.originalEvent || e).clipboardData;
                 const items = clipboardData.items;
+                const editor = this;
 
                 for (let i = 0; i < items.length; i++) {
                     const item = items[i];
 
-                    // Als het een afbeelding is
+                    // 📸 Afbeelding
                     if (item.type.indexOf("image") !== -1) {
                         const file = item.getAsFile();
                         const reader = new FileReader();
-                        reader.onload = (event) => {
-                            const imgNode = $('<img>').attr('src', event.target.result)[0];
-                            // Gebruik Summernote's API om afbeelding in te voegen
-                            $(this).summernote('insertNode', imgNode);
+
+                        reader.onload = function (event) {
+                            // WRAP de image in een container
+                            const wrapper = document.createElement('div');
+                            wrapper.innerHTML = `<img src="${event.target.result}" />`;
+
+                            $(editor).summernote('insertNode', wrapper);
                         };
+
                         reader.readAsDataURL(file);
                     }
-                    // Als het tekst is
-                    else if (item.type === "text/plain" || item.type === "text/html") {
-                        item.getAsString((pastedText) => {
-                            // Summernote filtert automatisch bij insertText
-                            $(this).summernote('pasteHTML', pastedText);
+
+                    // ✍️ Tekst
+                    if (item.type === "text/plain" || item.type === "text/html") {
+                        item.getAsString(function (text) {
+                            // Summernote filter blijft actief
+                            $(editor).summernote('pasteHTML', `<div>${text}</div>`);
                         });
                     }
                 }
-
-                e.preventDefault(); // Zorg dat standaard plakken niet gebeurt
             }
         }
     });
@@ -876,34 +882,40 @@
                         ],
                     },
                     callbacks: {
-                        onPaste: function(e) {
+                        onPaste: function (e) {
+                            e.preventDefault();
+
                             const clipboardData = (e.originalEvent || e).clipboardData;
                             const items = clipboardData.items;
+                            const editor = this;
 
                             for (let i = 0; i < items.length; i++) {
                                 const item = items[i];
 
-                                // Als het een afbeelding is
+                                // 📸 Afbeelding
                                 if (item.type.indexOf("image") !== -1) {
                                     const file = item.getAsFile();
                                     const reader = new FileReader();
-                                    reader.onload = (event) => {
-                                        const imgNode = $('<img>').attr('src', event.target.result)[0];
-                                        // Gebruik Summernote's API om afbeelding in te voegen
-                                        $(this).summernote('insertNode', imgNode);
+
+                                    reader.onload = function (event) {
+                                        // WRAP de image in een container
+                                        const wrapper = document.createElement('div');
+                                        wrapper.innerHTML = `<img src="${event.target.result}" />`;
+
+                                        $(editor).summernote('insertNode', wrapper);
                                     };
+
                                     reader.readAsDataURL(file);
                                 }
-                                // Als het tekst is
-                                else if (item.type === "text/plain" || item.type === "text/html") {
-                                    item.getAsString((pastedText) => {
-                                        // Summernote filtert automatisch bij insertText
-                                        $(this).summernote('pasteHTML', pastedText);
+
+                                // ✍️ Tekst
+                                if (item.type === "text/plain" || item.type === "text/html") {
+                                    item.getAsString(function (text) {
+                                        // Summernote filter blijft actief
+                                        $(editor).summernote('pasteHTML', `<div>${text}</div>`);
                                     });
                                 }
                             }
-
-                            e.preventDefault(); // Zorg dat standaard plakken niet gebeurt
                         }
                     }
                 });
@@ -1268,34 +1280,40 @@
                         ],
                     },
                     callbacks: {
-                        onPaste: function(e) {
+                        onPaste: function (e) {
+                            e.preventDefault();
+
                             const clipboardData = (e.originalEvent || e).clipboardData;
                             const items = clipboardData.items;
+                            const editor = this;
 
                             for (let i = 0; i < items.length; i++) {
                                 const item = items[i];
 
-                                // Als het een afbeelding is
+                                // 📸 Afbeelding
                                 if (item.type.indexOf("image") !== -1) {
                                     const file = item.getAsFile();
                                     const reader = new FileReader();
-                                    reader.onload = (event) => {
-                                        const imgNode = $('<img>').attr('src', event.target.result)[0];
-                                        // Gebruik Summernote's API om afbeelding in te voegen
-                                        $(this).summernote('insertNode', imgNode);
+
+                                    reader.onload = function (event) {
+                                        // WRAP de image in een container
+                                        const wrapper = document.createElement('div');
+                                        wrapper.innerHTML = `<img src="${event.target.result}" />`;
+
+                                        $(editor).summernote('insertNode', wrapper);
                                     };
+
                                     reader.readAsDataURL(file);
                                 }
-                                // Als het tekst is
-                                else if (item.type === "text/plain" || item.type === "text/html") {
-                                    item.getAsString((pastedText) => {
-                                        // Summernote filtert automatisch bij insertText
-                                        $(this).summernote('pasteHTML', pastedText);
+
+                                // ✍️ Tekst
+                                if (item.type === "text/plain" || item.type === "text/html") {
+                                    item.getAsString(function (text) {
+                                        // Summernote filter blijft actief
+                                        $(editor).summernote('pasteHTML', `<div>${text}</div>`);
                                     });
                                 }
                             }
-
-                            e.preventDefault(); // Zorg dat standaard plakken niet gebeurt
                         }
                     }
                 });
