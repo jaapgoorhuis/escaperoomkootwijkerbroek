@@ -1240,7 +1240,7 @@
                         }
                     });
                 }
-                location.reload();
+                // location.reload();
             }
         }
 
