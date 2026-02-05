@@ -616,16 +616,18 @@
 
     jQuery('#edit-slider-text').summernote({
         tabsize: 2,
-        height: 150,
+        height:150,
         codeview: true,
         codeviewFilter: false,
         codeviewIframeFilter: false,
         prettifyHtml: false,
         toolbar: [
+
             ['addbutton', ['addbutton']],
             ['addFacebook', ['addFacebook']],
             ['addLinkedIn', ['addLinkedIn']],
             ['addInsta', ['addInsta']],
+
             ['addFacebookDark', ['addFacebookDark']],
             ['addLinkedInDark', ['addLinkedInDark']],
             ['addInstaDark', ['addInstaDark']],
@@ -657,32 +659,15 @@
         },
         callbacks: {
             onPaste: function(e) {
-                const clipboardData = (e.originalEvent || e).clipboardData;
-                const items = clipboardData.items;
-
-                for (let i = 0; i < items.length; i++) {
-                    if (items[i].type.indexOf("image") !== -1) {
-                        // Afbeelding plakken
-                        const file = items[i].getAsFile();
-                        const reader = new FileReader();
-                        reader.onload = function(evt) {
-                            jQuery('#edit-slider-text').summernote('insertImage', evt.target.result);
-                        };
-                        reader.readAsDataURL(file);
-                    } else if (items[i].type === "text/plain" || items[i].type === "text/html") {
-                        // Tekst plakken
-                        const html = clipboardData.getData('text/html') || clipboardData.getData('text/plain');
-                        document.execCommand('insertHTML', false, html);
-                    }
-                }
                 e.preventDefault();
+                const clipboardData = (e.originalEvent || e).clipboardData;
+                const html = clipboardData.getData('text/html') || clipboardData.getData('text/plain');
+                document.execCommand('insertHTML', false, html);
             }
         }
     });
 
-
-
-    function showColumns() {
+        function showColumns() {
             jQuery('#add-column-modal').modal('show');
         }
 
@@ -824,19 +809,20 @@
 
                 jQuery('#' + columnId).append('<div class="block-texteditor block-value" id="block-' + randomIds + '"></div>');
                 jQuery('#add-block-item-modal').modal('hide');
-
                 jQuery('#block-' + randomIds).summernote({
                     tabsize: 2,
-                    height: 150,
+                    height:150,
                     codeview: true,
                     codeviewFilter: false,
                     codeviewIframeFilter: false,
                     prettifyHtml: false,
                     toolbar: [
+
                         ['addbutton', ['addbutton']],
                         ['addFacebook', ['addFacebook']],
                         ['addLinkedIn', ['addLinkedIn']],
                         ['addInsta', ['addInsta']],
+
                         ['addFacebookDark', ['addFacebookDark']],
                         ['addLinkedInDark', ['addLinkedInDark']],
                         ['addInstaDark', ['addInstaDark']],
@@ -868,30 +854,13 @@
                     },
                     callbacks: {
                         onPaste: function(e) {
-                            const clipboardData = (e.originalEvent || e).clipboardData;
-                            const items = clipboardData.items;
-
-                            for (let i = 0; i < items.length; i++) {
-                                if (items[i].type.indexOf("image") !== -1) {
-                                    // Afbeelding plakken
-                                    const file = items[i].getAsFile();
-                                    const reader = new FileReader();
-                                    reader.onload = function(evt) {
-                                        jQuery('#block-' + randomIds).summernote('insertImage', evt.target.result);
-                                    };
-                                    reader.readAsDataURL(file);
-                                } else if (items[i].type === "text/plain" || items[i].type === "text/html") {
-                                    // Tekst plakken
-                                    const html = clipboardData.getData('text/html') || clipboardData.getData('text/plain');
-                                    document.execCommand('insertHTML', false, html);
-                                }
-                            }
                             e.preventDefault();
+                            const clipboardData = (e.originalEvent || e).clipboardData;
+                            const html = clipboardData.getData('text/html') || clipboardData.getData('text/plain');
+                            document.execCommand('insertHTML', false, html);
                         }
                     }
                 });
-
-
             } else if (selectedBlockItem === 'afbeelding-block-item') {
 
                 jQuery('.add-block-item').remove();
@@ -1181,7 +1150,7 @@
                         }
                     });
                 }
-                // location.reload();
+                location.reload();
             }
         }
 
@@ -1211,16 +1180,18 @@
 
                 jQuery('#' + blockid).summernote({
                     tabsize: 2,
-                    height: 150,
+                    height:150,
                     codeview: true,
                     codeviewFilter: false,
                     codeviewIframeFilter: false,
                     prettifyHtml: false,
                     toolbar: [
+
                         ['addbutton', ['addbutton']],
                         ['addFacebook', ['addFacebook']],
                         ['addLinkedIn', ['addLinkedIn']],
                         ['addInsta', ['addInsta']],
+
                         ['addFacebookDark', ['addFacebookDark']],
                         ['addLinkedInDark', ['addLinkedInDark']],
                         ['addInstaDark', ['addInstaDark']],
@@ -1252,25 +1223,10 @@
                     },
                     callbacks: {
                         onPaste: function(e) {
-                            const clipboardData = (e.originalEvent || e).clipboardData;
-                            const items = clipboardData.items;
-
-                            for (let i = 0; i < items.length; i++) {
-                                if (items[i].type.indexOf("image") !== -1) {
-                                    // Afbeelding plakken
-                                    const file = items[i].getAsFile();
-                                    const reader = new FileReader();
-                                    reader.onload = function(evt) {
-                                        jQuery('#' + blockid).summernote('insertImage', evt.target.result);
-                                    };
-                                    reader.readAsDataURL(file);
-                                } else if (items[i].type === "text/plain" || items[i].type === "text/html") {
-                                    // Tekst plakken
-                                    const html = clipboardData.getData('text/html') || clipboardData.getData('text/plain');
-                                    document.execCommand('insertHTML', false, html);
-                                }
-                            }
                             e.preventDefault();
+                            const clipboardData = (e.originalEvent || e).clipboardData;
+                            const html = clipboardData.getData('text/html') || clipboardData.getData('text/plain');
+                            document.execCommand('insertHTML', false, html);
                         }
                     }
                 });

@@ -177,7 +177,6 @@ class PageBlockController extends Component
 
 
     public function storeContact() {
-
         $this->validate($this->contactRules());
 
         // Mail verzenden
@@ -194,9 +193,6 @@ class PageBlockController extends Component
 
         // Trigger captcha reset (optioneel, kan ook in JS samen met success)
         $this->dispatch('captchaReset');
-
-        // Optioneel: reset Livewire properties
-
     }
 
     public function updateOrder($list) {
