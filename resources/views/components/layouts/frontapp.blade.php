@@ -7,29 +7,30 @@
 
     <link rel="stylesheet" href="{{asset('/css/frontapp.css')}}"/>
     <link rel="stylesheet" href="{{asset('/css/block.css')}}"/>
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="https://escaperoomkootwijkerbroek.nl/sitemap.xml">
     <link rel="icon" type="image/x-icon" href="{{asset('storage/images/frontend/uploads/favicon.ico')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <?php  $route = \Illuminate\Support\Facades\Route::current()->slug;
-            $route2 = \Illuminate\Support\Facades\Route::current()->uri();
+    $route2 = \Illuminate\Support\Facades\Route::current()->uri();
 
-           if($route) {
-               $page = \App\Models\Page::where('route', $route)->first();
-               if(!$page) {
+    if($route) {
+        $page = \App\Models\Page::where('route', $route)->first();
+        if(!$page) {
 
-                   $title = 'Niet gevonden';
-               } else {
-                   $title = $page->title;
-               }
-           }
-           else if ($route2 == 'offerte-aanvragen') {
+            $title = 'Niet gevonden';
+        } else {
+            $title = $page->title;
+        }
+    }
+    else if ($route2 == 'offerte-aanvragen') {
 
-               $page = \App\Models\Page::where('route', 'offerte-aanvragen')->first();
-               $title = $page->title;
-           }
-           else {
-               $page = \App\Models\Page::where('route', 'index')->first();
-               $title = $page->title;
-           }
+        $page = \App\Models\Page::where('route', 'offerte-aanvragen')->first();
+        $title = $page->title;
+    }
+    else {
+        $page = \App\Models\Page::where('route', 'index')->first();
+        $title = $page->title;
+    }
     ?>
 
 
